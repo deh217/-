@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息采集表</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 10px;
+            margin: 10px;
+            background-color: #eaeaea;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        .form-group input,
+        .form-group select {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .icon {
+            margin-right: 5px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+        /* 动画效果 */
+        .form-group:hover label,
+        .form-group:hover .icon {
+            animation: moveRotate 1s ease-in-out;
+        }
+
+        /* 标题动画 */
+        .section h3 {
+            position: relative;
+        }
+
+        .section h3::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+        }
+
+        .section h3:hover {
+            animation: rotateTitle 1s ease-in-out;
+            transform-origin: 50% 50%; /* 以元素中心为旋转中心 */
+        }
+
+        @keyframes moveRotate {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(5px, 5px) rotate(10deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        @keyframes rotateTitle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 头像样式 */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        /* 一行显示两个表单元素 */
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* 解决右侧内容对齐问题 */
+        .form-row .form-group:last-child {
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">个人信息采集表</h2>
+        <div class="section">
+            <h3>基本信息</h3>
+            <img src="666.jpg" alt="照片" class="avatar">
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F464;</span>
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" value="董恩浩">
+                </div>
+                <div class="form-group">
+                    <span class="icon">&#x1F466;</span>
+                    <label for="gender">性别</label>
+                    <input type="radio" id="male" name="gender" value="男" checked> 男
+                    <input type="radio" id="female" name="gender" value="女"> 女
+                    <input type="radio" id="other" name="gender" value="其他"> 其他
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F4C5;</span>
+                    <label for="birthday">出生日期</label>
+                    <input type="text" id="birthday" value="2005/04/14">
+                </div>
+                <div class="form-group">
+                    <span class="icon">&#x1F6B6;</span>
+                    <label for="health">健康状况</label>
+                    <select id="health">
+                        <option value="优秀">优秀</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F9D1;</span>
+                    <label for="marriage">婚姻状况</label>
+                    <select id="marriage">
+                        <option value="未婚">未婚</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span class="icon">&#x1F4DA;</span>
+                    <label for="idNumber">身份证号</label>
+                    <input type="text" id="idNumber" value="371725200504140231">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F4F2;</span>
+                    <label for="phone">手机号码</label>
+                    <input type="text" id="phone" value="12456789989">
+                </div>
+                <div class="form-group">
+                    <span class="icon">&#x1F4E7;</span>
+                    <label for="email">电子邮箱</label>
+                    <input type="email" id="email" value="3572915027@qq.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F3E0;</span>
+                    <label for="address">家庭住址</label>
+                    <input type="text" id="address" value="山东省菏泽市">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>教育背景</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <span class="icon">&#x1F4DA;</span>
+                    <label for="education">最高学历</label>
+                    <input type="text" id="education" value="本科">
+                </div>
+                <div class="form-group">
+                    <span class="icon">&#x1F3EB;</span>
+                    <label for="school">毕业院校</label>
+                    <input type="text" id="school" value="鲁东大学">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>个人介绍</h3>
+            <p>我是董恩浩，毕业于鲁东大学，本科学历。在学习过程中，我系统地掌握了专业知识，具备扎实的理论基础。我对新技术有着强烈的学习热情，善于自我提升。性格开朗、乐观向上，具备良好的沟通能力和团队协作精神，能够快速适应新环境和新任务。我期待在未来的工作中，不断积累经验，为团队贡献自己的力量。</p>
+        </div>
+    </div>
+</body>
+
+</html>
+    
